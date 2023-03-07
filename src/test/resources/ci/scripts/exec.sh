@@ -36,7 +36,7 @@ main() {
     ./gradlew clean
 
     # Run IDEA.
-    /gradlew clean runIdeForUiTests&
+    ./gradlew runIdeForUiTests&
 
     # Wait for IDEA to start.
     # TODO.
