@@ -32,8 +32,17 @@ main() {
         metacity --sm-disable --replace 2> metacity.err &
     fi
 
-    # Run the plugin's test task
-    ./gradlew clean runIdeForUiTests& ./gradlew test
+    # Clean the project.
+    ./gradlew clean
+
+    # Run IDEA.
+    /gradlew clean runIdeForUiTests&
+
+    # Wait for IDEA to start.
+    # TODO.
+
+    # Run the tests
+    ./gradlew test
 
     # If there were any errors, gather some debug data before exiting.
     rc=$?
