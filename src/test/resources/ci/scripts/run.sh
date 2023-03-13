@@ -40,8 +40,11 @@ main() {
     # Clean the project.
     ./gradlew clean
 
+    # Build the product.
+    ./gradlew build -x test
+
     # Run IDEA.
-    nohup ./gradlew runIdeForUiTests --info &
+    nohup "./gradlew runIdeForUiTests --info &"
 
     # WAIT for the IDE to come up.
     echo -e "\n$(${currentTime[@]}): INFO: Waiting for the test IDE to start."
