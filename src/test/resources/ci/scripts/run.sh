@@ -41,14 +41,14 @@ main() {
     ./gradlew clean
 
     # Run IDEA.
-    nohup ./gradlew runIdeForUiTests &
+    nohup ./gradlew runIdeForUiTests --info &
 
     # WAIT for the IDE to come up.
     echo -e "\n$(${currentTime[@]}): INFO: Waiting for the test IDE to start."
     callLivenessEndpoint=(curl -s http://localhost:8082)
     count=1
     while ! ${callLivenessEndpoint[@]} | grep -qF 'Welcome to IntelliJ IDEA'; do
-        if [ $count -eq 48 ]; then
+        if [ $count -eq 60 ]; then
             echo -e "\n$(${currentTime[@]}): ERROR: Timed out waiting for the Intellij IDE Welcome Page to start. Output:"
             cat "$HOME"/nohup.out
             exit 12
