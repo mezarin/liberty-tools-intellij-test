@@ -9,13 +9,7 @@
  *******************************************************************************/
 package io.openliberty.tools.intellij.actions;
 
-import io.openliberty.tools.intellij.util.Constants;
-import io.openliberty.tools.intellij.util.DebugModeHandler;
-import io.openliberty.tools.intellij.util.LibertyActionUtil;
-import io.openliberty.tools.intellij.util.LocalizedResourceUtil;
-import io.openliberty.tools.intellij.util.LibertyGradleUtil;
-import io.openliberty.tools.intellij.util.LibertyMavenUtil;
-import io.openliberty.tools.intellij.util.LibertyException;
+import io.openliberty.tools.intellij.util.*;
 import org.jetbrains.plugins.terminal.ShellTerminalWidget;
 
 import java.io.IOException;
@@ -28,7 +22,7 @@ public class LibertyDevStartAction extends LibertyGeneralAction {
     public LibertyDevStartAction() {
         setActionCmd(LocalizedResourceUtil.getMessage("start.liberty.dev"));
     }
-    
+
     @Override
     protected void executeLibertyAction() {
         String startCmd = null;
@@ -43,7 +37,7 @@ public class LibertyDevStartAction extends LibertyGeneralAction {
             notifyError(ex.getTranslatedMessage());
             return;
         }
-        String start = projectType.equals(Constants.LIBERTY_MAVEN_PROJECT) ? buildSettingsCmd + Constants.LIBERTY_MAVEN_START_CMD : buildSettingsCmd + Constants.LIBERTY_GRADLE_START_CMD;
+        String start = projectType.equals(Constants.LIBERTY_MAVEN_PROJECT) ? buildSettingsCmd + Constants.LIBERTY_MAVEN_START_CMD + "-X" : buildSettingsCmd + Constants.LIBERTY_GRADLE_START_CMD + "--stacktrace";
         String startInContainer = projectType.equals(Constants.LIBERTY_MAVEN_PROJECT) ? buildSettingsCmd + Constants.LIBERTY_MAVEN_START_CONTAINER_CMD : buildSettingsCmd + Constants.LIBERTY_GRADLE_START_CONTAINER_CMD;
         startCmd = libertyModule.runInContainer() ? startInContainer : start;
         startCmd += libertyModule.getCustomStartParams();
