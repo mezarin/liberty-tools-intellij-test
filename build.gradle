@@ -137,6 +137,8 @@ runIdeForUiTests {
 test {
     useJUnitPlatform()
 
+    maxHeapSize = "2048m"
+
     testLogging {
         showStandardStreams = true
         exceptionFormat = 'full'

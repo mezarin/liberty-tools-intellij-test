@@ -44,7 +44,7 @@ main() {
     ./gradlew build -x test
 
     # Run IDEA.
-    nohup ./gradlew runIdeForUiTests --info &
+    ./gradlew runIdeForUiTests --info  > "$currentLoc"/build/reports/tests/remoteServer.log  2>&1 &
 
     # WAIT for the IDE to come up.
     echo -e "\n$(${currentTime[@]}): INFO: Waiting for the test IDE to start."
@@ -53,7 +53,7 @@ main() {
     while ! ${callLivenessEndpoint[@]} | grep -qF 'Welcome to IntelliJ IDEA'; do
         if [ $count -eq 60 ]; then
             echo -e "\n$(${currentTime[@]}): ERROR: Timed out waiting for the Intellij IDE Welcome Page to start. Output:"
-            cat "$HOME"/nohup.out
+            cat "$currentLoc"/build/reports/tests/remoteServer.log
             exit 12
         fi
         count=`expr $count + 1`
@@ -67,9 +67,8 @@ main() {
     currentLoc=$(pwd)
     ls -la
     ls -la "$currentLoc"
-    find /home/runner/work/. -name 'nohup.out' -type f
-    find "$currentLoc"/. -name 'nohup.out' -type f
-    find /home/. -name 'nohup.out' -type f
+    ls -la $HOME
+    ls -la "$currentLoc"/build/reports/tests/
 
     # If there were any errors, gather some debug data before exiting.
     rc=$?
@@ -77,9 +76,8 @@ main() {
         echo -e "\n$(${currentTime[@]}): ERROR: Failure while running tests. rc: ${rc}."
 
         echo -e "DEBUG: Collecting IDE remote server logs...\n"
-        if [ -f "$HOME/nohup.out" ]; then
-            mv "$HOME"/nohup.out cp "$currentLoc"/removeIDEServer.out
-            cp "$currentLoc"/removeIDEServer.out "$currentLoc"/build/reports/tests.
+        if [ -f "$currentLoc/build/reports/tests/remoteServer.log" ]; then
+            cp $currentLoc/build/reports/tests/remoteServer.log "$currentLoc"/build/reports/.
         fi
 
         echo -e "DEBUG: Collecting videos...\n"
