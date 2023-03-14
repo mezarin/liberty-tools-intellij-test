@@ -44,7 +44,7 @@ main() {
     ./gradlew build -x test
 
     # Run IDEA.
-    nohup "./gradlew runIdeForUiTests --info &"
+    nohup ./gradlew runIdeForUiTests --info &
 
     # WAIT for the IDE to come up.
     echo -e "\n$(${currentTime[@]}): INFO: Waiting for the test IDE to start."
@@ -63,6 +63,13 @@ main() {
     # Run the tests
     echo -e "\n$(${currentTime[@]}): INFO: Running tests..."
     ./gradlew test
+
+    currentLoc=$(pwd)
+    ls -la
+    ls -la "$currentLoc"
+    find /home/runner/work/. -name 'nohup.out' -type f
+    find "$currentLoc"/. -name 'nohup.out' -type f
+    find /home/. -name 'nohup.out' -type f
 
     # If there were any errors, gather some debug data before exiting.
     rc=$?
