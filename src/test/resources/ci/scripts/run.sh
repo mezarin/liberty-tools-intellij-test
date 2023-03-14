@@ -44,7 +44,7 @@ main() {
     ./gradlew build -x test
 
     # Run IDEA.
-    ./gradlew runIdeForUiTests --info  > "$currentLoc"/build/reports/tests/remoteServer.log  2>&1 &
+    ./gradlew runIdeForUiTests --info  > remoteServer.log  2>&1 &
 
     # WAIT for the IDE to come up.
     echo -e "\n$(${currentTime[@]}): INFO: Waiting for the test IDE to start."
