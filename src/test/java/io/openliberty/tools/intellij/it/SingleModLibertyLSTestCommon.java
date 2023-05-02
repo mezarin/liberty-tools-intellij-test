@@ -355,7 +355,7 @@ public abstract class SingleModLibertyLSTestCommon {
         UIBotTestUtils.importProject(remoteRobot, projectsPath, projectName);
         UIBotTestUtils.openProjectView(remoteRobot);
         UIBotTestUtils.openLibertyToolWindow(remoteRobot);
-        UIBotTestUtils.validateLibertyTWProjectTreeItemIsShowing(remoteRobot, projectName);
+        UIBotTestUtils.validateImportedProjectShowsInLTW(remoteRobot, projectName);
         UIBotTestUtils.closeLibertyToolWindow(remoteRobot);
 
         // pre-open project tree before attempting to open server.xml
