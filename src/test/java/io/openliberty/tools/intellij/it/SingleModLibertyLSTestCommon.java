@@ -255,7 +255,7 @@ public abstract class SingleModLibertyLSTestCommon {
         String expectedHoverData = "cvc-datatype-valid.1.2.3: 'wrong' is not a valid value of union type 'booleanType'.";
 
         Path pathToServerXML = null;
-        pathToServerXML = Paths.get(projectsPath, projectName,"src", "main", "liberty", "config", "server.xml");
+        pathToServerXML = Paths.get(projectsPath, projectName, "src", "main", "liberty", "config", "server.xml");
 
         // get focus on server.xml tab prior to copy
         UIBotTestUtils.clickOnFileTab(remoteRobot, "server.xml");
@@ -264,7 +264,7 @@ public abstract class SingleModLibertyLSTestCommon {
         UIBotTestUtils.copyWindowContent(remoteRobot);
 
         try {
-            UIBotTestUtils.insertStanzaInAppServerXML(remoteRobot, stanzaSnippet,20, 0, UIBotTestUtils.InsertionType.ELEMENT, false);
+            UIBotTestUtils.insertStanzaInAppServerXML(remoteRobot, stanzaSnippet, 20, 0, UIBotTestUtils.InsertionType.ELEMENT, false);
 
             //move cursor to hover point
             UIBotTestUtils.hoverInAppServerCfgFile(remoteRobot, "wrong", "server.xml", UIBotTestUtils.PopupType.DIAGNOSTIC);
@@ -344,15 +344,15 @@ public abstract class SingleModLibertyLSTestCommon {
 
     /**
      * Prepares the environment to run the tests.
-     *
-     * @param projectPath The path of the project.
-     * @param projectName The name of the project being used.
      */
-    public static void prepareEnv(String projectPath, String projectName) {
+    @Test
+    @Video
+    @Order(1)
+    public void prepareEnv() {
         waitForIgnoringError(Duration.ofMinutes(4), Duration.ofSeconds(5), "Wait for IDE to start", "IDE did not start", () -> remoteRobot.callJs("true"));
         remoteRobot.find(WelcomeFrameFixture.class, Duration.ofMinutes(2));
 
-        UIBotTestUtils.importProject(remoteRobot, projectPath, projectName);
+        UIBotTestUtils.importProject(remoteRobot, projectsPath, projectName);
         UIBotTestUtils.openProjectView(remoteRobot);
         UIBotTestUtils.openLibertyToolWindow(remoteRobot);
         UIBotTestUtils.validateLibertyTWProjectTreeItemIsShowing(remoteRobot, projectName);

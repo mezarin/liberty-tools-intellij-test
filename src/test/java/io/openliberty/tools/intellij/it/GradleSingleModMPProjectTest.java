@@ -11,6 +11,8 @@ package io.openliberty.tools.intellij.it;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,13 +20,14 @@ import java.nio.file.Paths;
 /**
  * Tests Liberty Tools actions using a single module MicroProfile Gradle project.
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GradleSingleModMPProjectTest extends SingleModMPProjectTestCommon {
 
     /**
      * Single module Microprofile project name.
      */
     private static final String SM_MP_PROJECT_NAME = "singleModGradleMP";
-    
+
     /**
      * The path to the folder containing the test projects.
      */
@@ -75,7 +78,8 @@ public class GradleSingleModMPProjectTest extends SingleModMPProjectTestCommon {
      */
     @BeforeAll
     public static void setup() {
-        prepareEnv(PROJECTS_PATH, SM_MP_PROJECT_NAME);
+
+        //prepareEnv(PROJECTS_PATH, SM_MP_PROJECT_NAME);
     }
 
     /**

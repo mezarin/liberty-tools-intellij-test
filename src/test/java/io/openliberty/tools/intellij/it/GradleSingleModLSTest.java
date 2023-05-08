@@ -10,9 +10,12 @@
 package io.openliberty.tools.intellij.it;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.nio.file.Paths;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GradleSingleModLSTest extends SingleModLibertyLSTestCommon {
 
     /**
@@ -37,6 +40,6 @@ public class GradleSingleModLSTest extends SingleModLibertyLSTestCommon {
      */
     @BeforeAll
     public static void setup() {
-        prepareEnv(PROJECTS_PATH, PROJECT_NAME);
+        //prepareEnv(PROJECTS_PATH, PROJECT_NAME);
     }
 }

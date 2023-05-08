@@ -10,15 +10,14 @@
 package io.openliberty.tools.intellij.it;
 
 import com.automation.remarks.junit5.Video;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.nio.file.Paths;
 
 /**
  * Tests that use a single module non Liberty Tools compliant REST Gradle project.
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GradleSingleModNLTRestProjectTest extends SingleModNLTRestProjectTestCommon {
     /**
      * The path to the folder containing helper test files.
@@ -45,7 +44,7 @@ public class GradleSingleModNLTRestProjectTest extends SingleModNLTRestProjectTe
      */
     @BeforeAll
     public static void setup() {
-        prepareEnv(PROJECTS_PATH, SM_NLT_REST_PROJECT_NAME);
+        //prepareEnv(PROJECTS_PATH, SM_NLT_REST_PROJECT_NAME);
     }
 
     /**

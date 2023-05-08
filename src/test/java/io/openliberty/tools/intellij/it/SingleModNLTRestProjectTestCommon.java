@@ -215,11 +215,13 @@ public abstract class SingleModNLTRestProjectTestCommon {
 
     /**
      * Prepares the environment to run the tests.
-     *
-     * @param projectPath The path of the project.
-     * @param projectName The name of the project being used.
      */
-    public static void prepareEnv(String projectPath, String projectName) {
+    @Test
+    @Video
+    @Order(1)
+    public void prepareEnv() {
+        String projectName = getSmNLTRestProjectName();
+        String projectPath = getProjectsDirPath();
         TestUtils.printTrace(TestUtils.TraceSevLevel.INFO,
                 "prepareEnv. Entry. ProjectPath: " + projectPath + ". ProjectName: " + projectName);
         waitForIgnoringError(Duration.ofMinutes(4), Duration.ofSeconds(5), "Wait for IDE to start", "IDE did not start", () -> remoteRobot.callJs("true"));

@@ -12,9 +12,7 @@ package io.openliberty.tools.intellij.it;
 import com.automation.remarks.junit5.Video;
 import com.intellij.remoterobot.stepsProcessing.StepLogger;
 import com.intellij.remoterobot.stepsProcessing.StepWorker;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
@@ -25,6 +23,7 @@ import java.util.Map;
 /**
  * Tests Liberty Tools actions using a single module MicroProfile Maven project.
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MavenSingleModMPProjectTest extends SingleModMPProjectTestCommon {
 
     /**
@@ -88,7 +87,7 @@ public class MavenSingleModMPProjectTest extends SingleModMPProjectTestCommon {
     @BeforeAll
     public static void setup() {
         StepWorker.registerProcessor(new StepLogger());
-        prepareEnv(PROJECTS_PATH, SM_MP_PROJECT_NAME);
+        //prepareEnv(PROJECTS_PATH, SM_MP_PROJECT_NAME);
     }
 
     /**

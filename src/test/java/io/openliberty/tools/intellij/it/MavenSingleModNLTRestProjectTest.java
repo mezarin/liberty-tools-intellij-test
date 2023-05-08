@@ -10,12 +10,15 @@
 package io.openliberty.tools.intellij.it;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.nio.file.Paths;
 
 /**
  * Tests that use a single module non Liberty Tools compliant REST Maven project.
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MavenSingleModNLTRestProjectTest extends SingleModNLTRestProjectTestCommon {
     /**
      * The path to the folder containing helper test files.
@@ -42,7 +45,7 @@ public class MavenSingleModNLTRestProjectTest extends SingleModNLTRestProjectTes
      */
     @BeforeAll
     public static void setup() {
-        prepareEnv(PROJECTS_PATH, SM_NLT_REST_PROJECT_NAME);
+        //prepareEnv(PROJECTS_PATH, SM_NLT_REST_PROJECT_NAME);
     }
 
     /**
