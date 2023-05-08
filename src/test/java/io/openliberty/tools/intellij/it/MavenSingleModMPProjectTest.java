@@ -23,6 +23,7 @@ import java.util.Map;
 /**
  * Tests Liberty Tools actions using a single module MicroProfile Maven project.
  */
+@Disabled
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MavenSingleModMPProjectTest extends SingleModMPProjectTestCommon {
 

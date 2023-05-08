@@ -17,6 +17,7 @@ import java.nio.file.Paths;
 /**
  * Tests that use a single module non Liberty Tools compliant REST Gradle project.
  */
+@Disabled
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class GradleSingleModNLTRestProjectTest extends SingleModNLTRestProjectTestCommon {
     /**

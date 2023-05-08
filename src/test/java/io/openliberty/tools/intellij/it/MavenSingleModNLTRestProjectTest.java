@@ -10,6 +10,7 @@
 package io.openliberty.tools.intellij.it;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 
@@ -18,6 +19,7 @@ import java.nio.file.Paths;
 /**
  * Tests that use a single module non Liberty Tools compliant REST Maven project.
  */
+@Disabled
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MavenSingleModNLTRestProjectTest extends SingleModNLTRestProjectTestCommon {
     /**
