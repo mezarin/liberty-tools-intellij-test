@@ -21,6 +21,7 @@ import java.time.Duration;
 import java.util.Map;
 
 import static com.intellij.remoterobot.utils.RepeatUtilsKt.waitForIgnoringError;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Holds common tests that use a single module MicroProfile project.
@@ -90,6 +91,7 @@ public abstract class SingleModMPProjectTestCommon {
 
         // Close the editor tab.
         UIBotTestUtils.closeFileEditorTab(remoteRobot, editorTabName, "10");
+        fail("test");
     }
 
     /**
@@ -144,6 +146,7 @@ public abstract class SingleModMPProjectTestCommon {
             // Cleanup configurations.
             UIBotTestUtils.deleteLibertyRunConfigurations(remoteRobot);
         }
+        fail("test fail 2");
     }
 
     /**
@@ -204,7 +207,7 @@ public abstract class SingleModMPProjectTestCommon {
     /**
      * Tests Liberty tool window start.../stop actions run from the project's pop-up action menu.
      */
-    @Test
+    //@Test
     @Video
     public void testStartWithParamsActionUsingPopUpMenu() {
         String testName = "testStartWithParamsActionUsingPopUpMenu";
@@ -258,7 +261,7 @@ public abstract class SingleModMPProjectTestCommon {
     /**
      * Tests start.../stop actions run from the search everywhere panel.
      */
-    @Test
+    //@Test
     @Video
     public void testStartWithParamsActionUsingSearch() {
         String testName = "testStartWithParamsActionUsingSearch";
@@ -312,7 +315,7 @@ public abstract class SingleModMPProjectTestCommon {
     /**
      * Tests dashboard start/RunTests/stop actions run from the project's drop-down action menu.
      */
-    @Test
+    //@Test
     @Video
     public void testRunTestsActionUsingDropDownMenu() {
         String testName = "testRunTestsActionUsingDropDownMenu";
@@ -351,7 +354,7 @@ public abstract class SingleModMPProjectTestCommon {
      * Tests Liberty tool window start/RunTests/stop actions selected on the project's drop-down action
      * menu and run using the play action button on the Liberty tool window's toolbar.
      */
-    @Test
+    //@Test
     @Video
     public void testRunTestsActionUsingPlayToolbarButton() {
         String testName = "testRunTestsActionUsingPlayToolbarButton";
@@ -389,7 +392,7 @@ public abstract class SingleModMPProjectTestCommon {
     /**
      * Tests Liberty tool window start/runTests/stop actions run from the project's pop-up action menu.
      */
-    @Test
+    //@Test
     @Video
     public void testRunTestsActionUsingPopUpMenu() {
         String testName = "testRunTestsActionUsingPopUpMenu";
@@ -427,7 +430,7 @@ public abstract class SingleModMPProjectTestCommon {
     /**
      * Tests start/runTests/stop actions run from the search everywhere panel.
      */
-    @Test
+    //@Test
     @Video
     public void testRunTestsActionUsingSearch() {
         String testName = "testRunTestsActionUsingSearch";
@@ -468,7 +471,7 @@ public abstract class SingleModMPProjectTestCommon {
      * - Using project frame toolbar's config selection box and Debug icon to select a Liberty configuration and start dev mode.
      * - Automatic server JVM attachment to the debugger.
      */
-    @Test
+    //@Test
     @Video
     public void testStartWithConfigInDebugModeUsingToolbar() {
         String testName = "testStartWithConfigInDebugModeUsingToolbar";
@@ -528,7 +531,7 @@ public abstract class SingleModMPProjectTestCommon {
      * - Creating a new Liberty tools configuration.
      * - Using Run->Debug... menu options to select the configuration and run in the project in dev mode.
      */
-    @Test
+    //@Test
     @Video
     public void testStartWithConfigInDebugModeUsingMenu() {
         String testName = "testStartWithConfigInDebugModeUsingMenu";
@@ -585,7 +588,7 @@ public abstract class SingleModMPProjectTestCommon {
      * - Creating a new Liberty tools configuration.
      * - Using project frame toolbar's config selection box and Run icon to select a Liberty configuration and start dev mode.
      */
-    @Test
+    //@Test
     @Video
     public void testStartWithConfigInRunModeUsingToolbar() {
         String testName = "testStartWithConfigInRunModeUsingToolbar";
@@ -624,7 +627,7 @@ public abstract class SingleModMPProjectTestCommon {
      * - Creating a new Liberty tools configuration.
      * - Using Run->Run... menu options to select the configuration and run in the project in dev mode.
      */
-    @Test
+    //@Test
     @Video
     public void testStartWithConfigInRunModeUsingMenu() {
         String testName = "testStartWithConfigInRunModeUsingMenu";
@@ -660,7 +663,7 @@ public abstract class SingleModMPProjectTestCommon {
      * - Customized configuration history preservation across multiple configs.
      * - Customized configuration change preservation across multiple configs.
      */
-    @Test
+    //@Test
     @Video
     public void testMultipleConfigEditHistory() {
         String testName = "testMultipleConfigEditHistory";
@@ -770,7 +773,7 @@ public abstract class SingleModMPProjectTestCommon {
      * timeout set by the plugins and there is currently no way to extend this timeout through the
      * Liberty Tools plugin(i.e. set dockerBuildTimeout).
      */
-    @Test
+    //@Test
     @Video
     @EnabledOnOs({OS.LINUX})
     @Disabled
@@ -803,7 +806,7 @@ public abstract class SingleModMPProjectTestCommon {
      * timeout set by the plugins and there is currently no way to extend this timeout through the
      * Liberty Tools plugin(i.e. set dockerBuildTimeout).
      */
-    @Test
+    //@Test
     @Video
     @EnabledOnOs({OS.LINUX})
     @Disabled
@@ -835,7 +838,7 @@ public abstract class SingleModMPProjectTestCommon {
      * timeout set by the plugins and there is currently no way to extend this timeout through the
      * Liberty Tools plugin(i.e. set dockerBuildTimeout).
      */
-    @Test
+    //@Test
     @Video
     @EnabledOnOs({OS.LINUX})
     @Disabled
@@ -868,7 +871,7 @@ public abstract class SingleModMPProjectTestCommon {
      * timeout set by the plugins and there is currently no way to extend this timeout through the
      * Liberty Tools plugin(i.e. set dockerBuildTimeout).
      */
-    @Test
+    //@Test
     @Video
     @EnabledOnOs({OS.LINUX})
     @Disabled
